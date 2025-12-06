@@ -32,6 +32,15 @@ def render():
         with st.form("signup_form", clear_on_submit=False):
             name = st.text_input("👤 Full Name", placeholder="John Doe", key="signup_name")
             email = st.text_input("📧 Email Address", placeholder="your.email@example.com", key="signup_email")
+            
+            # Gender selection
+            gender = st.selectbox(
+                "⚥ Gender",
+                ["Female", "Male"],
+                index=0,
+                help="This will personalize your shopping experience"
+            )
+            
             password = st.text_input("🔒 Password", type="password", placeholder="At least 6 characters", key="signup_password")
             confirm_password = st.text_input("🔒 Confirm Password", type="password", placeholder="Re-enter password", key="signup_confirm")
             
@@ -52,7 +61,7 @@ def render():
                 elif not agree_terms:
                     st.error("⚠️ Please agree to the Terms of Service to continue.")
                 else:
-                    success, message = signup_user(email, password, name)
+                    success, message = signup_user(email, password, name, gender)
                     
                     if success:
                         st.success(f"✅ {message}")

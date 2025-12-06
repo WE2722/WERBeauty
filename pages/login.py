@@ -64,8 +64,12 @@ def render():
                         else:
                             st.balloons()
                         
-                        # Redirect to home
-                        st.session_state["current_page"] = "home"
+                        # Redirect based on gender
+                        user_gender = user_data.get("gender", "Female")
+                        if user_gender == "Male":
+                            st.session_state["current_page"] = "men"
+                        else:
+                            st.session_state["current_page"] = "women"
                         st.rerun()
                     else:
                         st.error(f"❌ {message}")

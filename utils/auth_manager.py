@@ -61,7 +61,7 @@ def save_users(users: Dict) -> None:
         json.dump(users, f, indent=2)
 
 
-def signup_user(email: str, password: str, name: str) -> tuple[bool, str]:
+def signup_user(email: str, password: str, name: str, gender: str = "Female") -> tuple[bool, str]:
     """
     Register a new user.
     
@@ -69,6 +69,7 @@ def signup_user(email: str, password: str, name: str) -> tuple[bool, str]:
         email: User email
         password: User password
         name: User full name
+        gender: User gender (Female/Male)
     
     Returns:
         Tuple of (success, message)
@@ -92,6 +93,7 @@ def signup_user(email: str, password: str, name: str) -> tuple[bool, str]:
         "name": name,
         "password": hash_password(password),
         "created_at": datetime.now().isoformat(),
+        "gender": gender,
         "profile": {
             "phone": "",
             "address": "",

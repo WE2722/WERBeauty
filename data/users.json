@@ -3,6 +3,7 @@
     "name": "wiame",
     "password": "36e3c33eba21b62ad4b888f3e54f2c9ffe03f4a9b0ea8c0b3bb57294db3d7caa",
     "created_at": "2025-12-06T09:19:11.840109",
+    "gender": "Female",
     "profile": {
       "phone": "",
       "address": "",
@@ -22,5 +23,27 @@
       "m001",
       "m002"
     ]
+  },
+  "misakiyn50@gmail.com": {
+    "name": "WIWI",
+    "password": "8a77149d76cc62d63623ced346d8a5b84d02cb4ae29ee2504117e010cca82dcb",
+    "created_at": "2025-12-06T10:23:33.579229",
+    "gender": "Female",
+    "profile": {
+      "phone": "",
+      "address": "",
+      "city": "",
+      "country": "",
+      "birthday": ""
+    },
+    "preferences": {
+      "skin_type": "",
+      "favorite_brands": [],
+      "newsletter": true
+    },
+    "cart": [],
+    "favorites": [],
+    "temp_password": "cb7144a7f52918eb3bc4506e0f7b8ec74b26f22c01bc7015dd019b47b5da5033",
+      "temp_password_expires": "2025-12-06T11:41:20.545059"
+    }
   }
-}
