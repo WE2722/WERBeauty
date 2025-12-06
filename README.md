@@ -81,10 +81,61 @@
 
 ### 🔒 User Management
 
-- Secure authentication system
-- User profiles and preferences
-- Order history tracking
-- Address book management
+- **Complete Authentication System**
+  - Secure user registration with email validation
+  - Password hashing (SHA-256)
+  - Login with session management
+  - Password reset via email
+  - Profile management with editable fields
+  
+- **User Profiles**
+  - Personal information (name, phone, address, birthday)
+  - Beauty preferences (skin type)
+  - Order history tracking
+  - Review and rating system
+  - Favorites sync across sessions
+  
+- **Account Features**
+  - Gender selection (personalized experience)
+  - Change password functionality
+  - Newsletter preferences
+  - Account statistics
+  - Logout with data persistence
+
+### 📦 Order Management
+
+- **Complete Order System**
+  - Order creation and tracking
+  - Order history with details
+  - Order status updates (Processing, Shipped, Delivered, Cancelled)
+  - Cancel order functionality
+  - Contact support for orders
+  
+- **Cart & Checkout**
+  - Persistent cart linked to user accounts
+  - Real-time price calculation
+  - Multiple shipping methods
+  - Payment information collection
+  - Order confirmation
+
+### ⭐ Reviews & Ratings
+
+- **Product Review System**
+  - 5-star rating system
+  - Written reviews with comments
+  - User review history
+  - Delete own reviews
+  - Average rating display
+  - Review count on products
+
+### 🎨 Gender-Based Themes
+
+- **Personalized UI Colors**
+  - Female users: Rose gold theme (#B76E79)
+  - Male users: Blue theme (#4A90E2)
+  - Dynamic profile page colors
+  - Gender-specific footer styling
+  - Auto-redirect to gender-specific collections
 
 ---
 
@@ -145,17 +196,17 @@ pip install -r requirements.txt
 
 ### Step 4: Configure Environment (Optional)
 
-Create a `.env` file for custom configurations:
+For password reset email functionality, set up environment variable:
 
-```env
-# Botpress Configuration
-BOTPRESS_BOT_ID=your_bot_id
-BOTPRESS_CLIENT_ID=your_client_id
+```bash
+# Windows PowerShell
+$env:EMAIL_PASSWORD = "your-gmail-app-password"
 
-# App Configuration
-APP_TITLE=WERBEAUTY
-DEBUG_MODE=False
+# Linux/macOS
+export EMAIL_PASSWORD="your-gmail-app-password"
 ```
+
+See [EMAIL_SETUP.md](EMAIL_SETUP.md) for complete email configuration guide.
 
 ### Step 5: Run the Application
 
@@ -190,7 +241,11 @@ WERBEAUTY_app/
 │   ├── cart.py                # Shopping cart
 │   ├── favorites.py           # Wishlist
 │   ├── recommended.py         # Recommendations
-│   └── payment.py             # Checkout process
+│   ├── payment.py             # Checkout process
+│   ├── login.py               # User login
+│   ├── signup.py              # User registration
+│   ├── profile.py             # User profile management
+│   └── forgot_password.py     # Password reset
 │
 ├── config/                     # Configuration files
 │   ├── constants.py           # App constants
@@ -198,13 +253,22 @@ WERBEAUTY_app/
 │
 ├── data/                       # Product data
 │   ├── women_products.json    # Women's products
+│   ├── men_products.json      # Men's products
+│   ├── users.json             # User accounts
+│   ├── orders.json            # Order history
+│   └── reviews.json           # Product reviews
 │   └── men_products.json      # Men's products
 │
 ├── utils/                      # Utility functions
+│   ├── auth_manager.py        # Authentication & user management
 │   ├── cart_manager.py        # Cart operations
 │   ├── favorites_manager.py   # Favorites management
-│   ├── product_utils.py       # Product helpers
-│   └── recommendation.py      # Recommendation engine
+│   ├── order_manager.py       # Order processing
+│   ├── review_manager.py      # Review system
+│   ├── email_manager.py       # Email notifications
+│   ├── product_loader.py      # Product data loading
+│   ├── helpers.py             # Helper functions
+│   └── recommendation_engine.py # Recommendation logic
 │
 └── WERvenv/                    # Virtual environment (not in repo)
 ```
@@ -257,12 +321,15 @@ streamlit run app.py --server.port=8502
 ### Navigating the App
 
 1. **Home Page**: Browse featured collections and bestsellers
-2. **Women/Men Pages**: Explore category-specific products
+2. **Women/Men Pages**: Explore category-specific products with filters
 3. **Search**: Use the search bar to find specific products
 4. **Filter**: Apply filters for category, price, and rating
 5. **Cart**: Add products and proceed to checkout
-6. **Favorites**: Save products for later
-7. **Chatbot**: Click the AI assistant for help
+6. **Favorites**: Save products for later viewing
+7. **Profile**: Manage account, view orders, and reviews
+8. **Chatbot**: Click the AI assistant for instant help
+9. **Reviews**: Rate and review products you've purchased
+10. **Password Reset**: Use "Forgot Password" to recover account
 
 ### Using the AI Chatbot
 
@@ -291,6 +358,13 @@ Test checklist:
 - ✅ Search functionality
 - ✅ Add to cart operations
 - ✅ Favorites management
+- ✅ User authentication (signup/login)
+- ✅ Password reset functionality
+- ✅ Profile management
+- ✅ Order placement and history
+- ✅ Product reviews and ratings
+- ✅ Gender-based UI themes
+- ✅ Cart persistence across sessions
 - ✅ Chatbot interactions
 - ✅ Navigation between pages
 - ✅ Responsive design (resize browser)
@@ -348,11 +422,21 @@ The recommendation system uses collaborative filtering based on:
 ### Session Management
 
 Streamlit session state stores:
-- Shopping cart items
-- Favorite products
-- User preferences
+- Shopping cart items (synced to user account)
+- Favorite products (synced to user account)
+- User authentication data
 - Current page navigation
 - Filter selections
+- Order history
+- User reviews
+
+### Data Persistence
+
+- User accounts stored in JSON (data/users.json)
+- Orders tracked in JSON (data/orders.json)
+- Reviews saved in JSON (data/reviews.json)
+- Cart/favorites sync on login/logout
+- Session state for real-time updates
 
 ### Performance Optimization
 
@@ -466,16 +550,25 @@ This project was developed as a school assignment to demonstrate proficiency in:
 
 ## 🚧 Roadmap
 
-### Version 2.0 (Planned)
+### Version 2.0 (Completed Features) ✅
+
+- [x] User authentication with database
+- [x] Product reviews system with ratings
+- [x] Order management and history
+- [x] Password reset via email
+- [x] Gender-based personalization
+- [x] Profile management
+- [x] Cart/favorites persistence
+
+### Version 3.0 (Planned)
 
 - [ ] Real payment integration (Stripe/PayPal)
-- [ ] User authentication with database
-- [ ] Email notifications
+- [ ] Email order confirmations
 - [ ] Advanced analytics dashboard
-- [ ] Product reviews system
 - [ ] Live chat escalation to human agents
 - [ ] Mobile app (React Native)
 - [ ] AR try-on feature for makeup
+- [ ] Image upload for reviews
 
 ### Future Enhancements
 
@@ -491,12 +584,14 @@ This project was developed as a school assignment to demonstrate proficiency in:
 
 ## 📈 Project Stats
 
-- **Lines of Code**: ~3,000+
-- **Components**: 15+
-- **Pages**: 6 main pages
+- **Lines of Code**: ~5,500+
+- **Components**: 20+
+- **Pages**: 11 main pages
 - **Products**: 100+ items
-- **Features**: 20+ core functionalities
-- **Development Time**: [Your timeline]
+- **Features**: 35+ core functionalities
+- **User System**: Complete authentication & profiles
+- **Data Files**: JSON-based persistence
+- **Development Time**: 3+ weeks
 
 ---
 
