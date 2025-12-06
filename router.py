@@ -38,6 +38,9 @@ def route_to_page():
     elif current_page == "signup":
         from pages import signup
         signup.render()
+    elif current_page == "forgot_password":
+        from pages import forgot_password
+        forgot_password.render()
     elif current_page == "profile":
         from pages import profile
         profile.render()

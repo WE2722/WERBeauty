@@ -7,8 +7,11 @@ import streamlit as st
 import json
 import hashlib
 import os
-from datetime import datetime
+import secrets
+import string
+from datetime import datetime, timedelta
 from typing import Optional, Dict
+from utils.email_manager import send_password_reset_email
 
 
 def hash_password(password: str) -> str:
@@ -353,3 +356,157 @@ def load_user_data_to_session() -> None:
             
             st.session_state["cart"] = users[email]["cart"]
             st.session_state["favorites"] = users[email]["favorites"]
+
+
+def generate_reset_token(length: int = 12) -> str:
+    """
+    Generate a secure random token for password reset.
+    
+    Args:
+        length: Length of the token
+    
+    Returns:
+        Random token string
+    """
+    # Use letters and digits for easy copying
+    characters = string.ascii_letters + string.digits
+    return ''.join(secrets.choice(characters) for _ in range(length))
+
+
+def initiate_password_reset(email: str) -> tuple[bool, str]:
+    """
+    Initiate password reset process for a user.
+    Generates a temporary password and sends it via email.
+    
+    Args:
+        email: User email
+    
+    Returns:
+        Tuple of (success, message)
+    """
+    users = load_users()
+    
+    # Check if email exists
+    if email not in users:
+        # Don't reveal if email exists or not for security
+        return True, f"If an account exists with {email}, a password reset email has been sent."
+    
+    # Generate temporary password
+    temp_password = generate_reset_token(12)
+    
+    # Store temporary password and expiration (1 hour from now)
+    users[email]["temp_password"] = hash_password(temp_password)
+    users[email]["temp_password_expires"] = (datetime.now() + timedelta(hours=1)).isoformat()
+    
+    save_users(users)
+    
+    # Send email with temporary password
+    user_name = users[email].get("name", "User")
+    success, message = send_password_reset_email(email, temp_password, user_name)
+    
+    if success:
+        return True, f"Password reset instructions have been sent to {email}. Check your email for the temporary password."
+    else:
+        return False, message
+
+
+def login_with_temp_password(email: str, temp_password: str) -> tuple[bool, str, Optional[Dict]]:
+    """
+    Authenticate user with temporary password.
+    
+    Args:
+        email: User email
+        temp_password: Temporary password from reset email
+    
+    Returns:
+        Tuple of (success, message, user_data)
+    """
+    users = load_users()
+    
+    # Check if email exists
+    if email not in users:
+        return False, "Email not found.", None
+    
+    # Check if temporary password exists
+    if "temp_password" not in users[email]:
+        return False, "No active password reset request. Please use your regular password or request a new reset.", None
+    
+    # Check if temporary password has expired
+    if "temp_password_expires" in users[email]:
+        expiry = datetime.fromisoformat(users[email]["temp_password_expires"])
+        if datetime.now() > expiry:
+            # Clean up expired temp password
+            del users[email]["temp_password"]
+            del users[email]["temp_password_expires"]
+            save_users(users)
+            return False, "Temporary password has expired. Please request a new password reset.", None
+    
+    # Verify temporary password
+    if users[email]["temp_password"] != hash_password(temp_password):
+        return False, "Incorrect temporary password.", None
+    
+    # Clean up temporary password after successful login
+    del users[email]["temp_password"]
+    if "temp_password_expires" in users[email]:
+        del users[email]["temp_password_expires"]
+    save_users(users)
+    
+    # Merge session cart and favorites (same as regular login)
+    session_cart = st.session_state.get("cart", [])
+    session_favorites = st.session_state.get("favorites", [])
+    
+    if "cart" not in users[email]:
+        users[email]["cart"] = []
+    if "favorites" not in users[email]:
+        users[email]["favorites"] = []
+    
+    for session_item in session_cart:
+        found = False
+        for user_item in users[email]["cart"]:
+            if user_item["id"] == session_item["id"]:
+                user_item["quantity"] += session_item["quantity"]
+                found = True
+                break
+        if not found:
+            users[email]["cart"].append(session_item)
+    
+    for fav_id in session_favorites:
+        if fav_id not in users[email]["favorites"]:
+            users[email]["favorites"].append(fav_id)
+    
+    save_users(users)
+    
+    st.session_state["cart"] = users[email]["cart"]
+    st.session_state["favorites"] = users[email]["favorites"]
+    
+    return True, "Login successful! Please change your password immediately in your profile settings.", users[email]
+
+
+def verify_temp_password_and_login(email: str, password: str) -> tuple[bool, str, Optional[Dict]]:
+    """
+    Attempt login with either regular password or temporary password.
+    This is a wrapper that tries both methods.
+    
+    Args:
+        email: User email
+        password: Password (could be regular or temporary)
+    
+    Returns:
+        Tuple of (success, message, user_data)
+    """
+    users = load_users()
+    
+    if email not in users:
+        return False, "Email not found. Please sign up first.", None
+    
+    # First try regular password
+    if users[email]["password"] == hash_password(password):
+        # Regular login flow
+        return login_user(email, password)
+    
+    # If regular password fails, try temporary password
+    if "temp_password" in users[email]:
+        return login_with_temp_password(email, password)
+    
+    return False, "Incorrect password. Please try again or use 'Forgot Password'.", None
+

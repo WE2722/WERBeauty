@@ -4,7 +4,7 @@ User authentication and login form.
 """
 
 import streamlit as st
-from utils.auth_manager import login_user, is_logged_in
+from utils.auth_manager import verify_temp_password_and_login, is_logged_in
 
 
 def render():
@@ -39,7 +39,9 @@ def render():
             with col_a:
                 remember_me = st.checkbox("Remember me")
             with col_b:
-                st.markdown('<div style="text-align: right; padding-top: 0.5rem;"><a href="#" style="color: #B76E79; text-decoration: none; font-size: 0.9rem;">Forgot password?</a></div>', unsafe_allow_html=True)
+                if st.form_submit_button("Forgot password?", type="secondary", use_container_width=True):
+                    st.session_state["current_page"] = "forgot_password"
+                    st.rerun()
             
             st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
             
@@ -49,13 +51,18 @@ def render():
                 if not email or not password:
                     st.error("⚠️ Please fill in all fields.")
                 else:
-                    success, message, user_data = login_user(email, password)
+                    success, message, user_data = verify_temp_password_and_login(email, password)
                     
                     if success:
                         st.session_state["user"] = user_data
                         st.session_state["user_email"] = email
                         st.success(f"✅ {message}")
-                        st.balloons()
+                        
+                        # Show warning if logged in with temp password
+                        if "change your password" in message.lower():
+                            st.warning("⚠️ You're using a temporary password. Please change it in your profile!")
+                        else:
+                            st.balloons()
                         
                         # Redirect to home
                         st.session_state["current_page"] = "home"
