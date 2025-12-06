@@ -4,7 +4,7 @@ User authentication and login form.
 """
 
 import streamlit as st
-from config.theme import apply_theme
+from config.theme import apply_custom_theme
 from utils.auth_manager import login_user, is_logged_in
 from components.navbar import render_navbar
 
@@ -13,7 +13,7 @@ def render():
     """
     Render the login page.
     """
-    apply_theme()
+    apply_custom_theme()
     render_navbar()
     
     # Redirect if already logged in

@@ -4,7 +4,7 @@ User profile management and settings.
 """
 
 import streamlit as st
-from config.theme import apply_theme
+from config.theme import apply_custom_theme
 from utils.auth_manager import (
     is_logged_in, get_current_user, get_current_user_email,
     update_user_profile, update_user_preferences, change_password, logout_user
@@ -17,7 +17,7 @@ def render():
     """
     Render the profile page.
     """
-    apply_theme()
+    apply_custom_theme()
     render_navbar()
     
     # Redirect if not logged in
