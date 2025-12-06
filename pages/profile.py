@@ -30,10 +30,21 @@ def render():
     user = get_current_user()
     email = get_current_user_email()
     
+    # Get gender-based colors
+    user_gender = user.get("gender", "Female")
+    if user_gender == "Male":
+        primary_color = "#4A90E2"  # Blue
+        secondary_color = "#7BB3E8"  # Light blue
+        gradient = "linear-gradient(135deg, #4A90E2, #7BB3E8)"
+    else:
+        primary_color = "#B76E79"  # Rose gold
+        secondary_color = "#d4a5ad"  # Light rose
+        gradient = "linear-gradient(135deg, #B76E79, #d4a5ad)"
+    
     st.markdown("<div style='height: 2rem;'></div>", unsafe_allow_html=True)
     
     # Profile header
-    st.markdown(f'<div style="text-align: center;"><h1 style="font-family: \'Playfair Display\', serif; font-size: 2.5rem; color: #B76E79; margin-bottom: 0.5rem;">My Profile</h1><p style="color: rgba(255,255,255,0.7); font-size: 1.1rem; margin-bottom: 2rem;">Welcome back, {user["name"]}! 👋</p></div>', unsafe_allow_html=True)
+    st.markdown(f'<div style="text-align: center;"><h1 style="font-family: \'Playfair Display\', serif; font-size: 2.5rem; color: {primary_color}; margin-bottom: 0.5rem;">My Profile</h1><p style="color: rgba(255,255,255,0.7); font-size: 1.1rem; margin-bottom: 2rem;">Welcome back, {user["name"]}! 👋</p></div>', unsafe_allow_html=True)
     
     # Tabs for different sections
     tab1, tab2, tab3, tab4, tab5 = st.tabs(["📝 Profile Info", "⚙️ Preferences", "🔒 Security", "📦 Orders", "⭐ My Reviews"])
@@ -46,12 +57,12 @@ def render():
         
         with col1:
             # Profile avatar
-            st.markdown('<div style="text-align: center; padding: 2rem; background: linear-gradient(135deg, #B76E79, #d4a5ad); border-radius: 24px;"><div style="font-size: 5rem; margin-bottom: 1rem;">👤</div><h3 style="color: white; margin: 0;">' + user["name"] + '</h3><p style="color: rgba(255,255,255,0.8); margin-top: 0.5rem;">' + email + '</p></div>', unsafe_allow_html=True)
+            st.markdown(f'<div style="text-align: center; padding: 2rem; background: {gradient}; border-radius: 24px;"><div style="font-size: 5rem; margin-bottom: 1rem;">👤</div><h3 style="color: white; margin: 0;">' + user["name"] + '</h3><p style="color: rgba(255,255,255,0.8); margin-top: 0.5rem;">' + email + '</p></div>', unsafe_allow_html=True)
             
             st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
             
             # Account stats
-            st.markdown('<div style="padding: 1.5rem; background: rgba(255, 255, 255, 0.05); border-radius: 18px; backdrop-filter: blur(10px);"><div style="text-align: center; color: rgba(255,255,255,0.7);"><div style="font-size: 1.8rem; font-weight: bold; color: #B76E79;">Member Since</div><div style="margin-top: 0.5rem;">' + user.get("created_at", "2025-01-01")[:10] + '</div></div></div>', unsafe_allow_html=True)
+            st.markdown(f'<div style="padding: 1.5rem; background: rgba(255, 255, 255, 0.05); border-radius: 18px; backdrop-filter: blur(10px);"><div style="text-align: center; color: rgba(255,255,255,0.7);"><div style="font-size: 1.8rem; font-weight: bold; color: {primary_color};">Member Since</div><div style="margin-top: 0.5rem;">' + user.get("created_at", "2025-01-01")[:10] + '</div></div></div>', unsafe_allow_html=True)
         
         with col2:
             # Edit profile form
