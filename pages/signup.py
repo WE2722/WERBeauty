@@ -57,14 +57,18 @@ def render():
                     if success:
                         st.success(f"✅ {message}")
                         st.balloons()
-                        
-                        # Show login button
-                        st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
-                        if st.button("Go to Login", use_container_width=True, key="go_to_login_after_signup"):
-                            st.session_state["current_page"] = "login"
-                            st.rerun()
+                        st.session_state["signup_success"] = True
+                        st.rerun()
                     else:
                         st.error(f"❌ {message}")
+        
+        # Show login button after successful signup (outside form)
+        if st.session_state.get("signup_success"):
+            st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
+            if st.button("Go to Login", use_container_width=True, key="go_to_login_after_signup"):
+                st.session_state["signup_success"] = False
+                st.session_state["current_page"] = "login"
+                st.rerun()
         
         st.markdown('</div>', unsafe_allow_html=True)
         

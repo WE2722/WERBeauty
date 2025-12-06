@@ -46,7 +46,7 @@ def add_to_favorites(product: Dict) -> bool:
 
 def remove_from_favorites(product_id: str) -> bool:
     """
-    Remove a product from favorites. 
+    Remove a product from favorites.
     
     Args:
         product_id: ID of product to remove
@@ -55,10 +55,8 @@ def remove_from_favorites(product_id: str) -> bool:
         True if removed successfully
     """
     favorites = get_favorites()
-    st.session_state["favorites"] = [item for item in favorites if item.get("id") != product_id]
+    st.session_state["favorites"] = [item for item in favorites if item != product_id]
     return True
-
-
 def is_favorite(product_id: str) -> bool:
     """
     Check if a product is in favorites.

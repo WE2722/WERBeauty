@@ -181,4 +181,4 @@ def render():
             st.rerun()
     
     st.markdown("<div style='height: 3rem;'></div>", unsafe_allow_html=True)
-    render_footer()
+
