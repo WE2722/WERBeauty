@@ -1,37 +1,127 @@
-MIT License
+# Proprietary License - Educational & Non-Commercial Use Only
 
-Copyright (c) 2025 Wiame El Hafid & Houssam Rjili - WERBEAUTY
+**Copyright (c) 2025 Wiame El Hafid & Houssam Rjili - WERBEAUTY**
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+All Rights Reserved.
 
 ---
 
-THIRD-PARTY LICENSES
+## Terms and Conditions
 
-This project uses the following open-source packages:
+### 1. Grant of Rights
 
-1. Streamlit (Apache License 2.0)
-   Copyright (c) Streamlit Inc.
-   https://github.com/streamlit/streamlit
+This software and associated documentation files (the "Software") are provided for **EDUCATIONAL AND VIEWING PURPOSES ONLY**.
 
-2. Botpress (MIT License)
-   Copyright (c) Botpress, Inc.
-   https://github.com/botpress/botpress
+You are granted the following LIMITED rights:
 
-For a complete list of dependencies and their licenses, see requirements.txt
+✅ **View** - You may view the source code on GitHub  
+✅ **Study** - You may study the code for educational purposes  
+✅ **Reference** - You may reference the code in academic work (with proper attribution)
+
+### 2. Restrictions
+
+You are **PROHIBITED** from:
+
+❌ **Commercial Use** - Using this software or any part of it for commercial purposes  
+❌ **Cloning/Downloading** - Cloning, downloading, or copying the repository without explicit written permission  
+❌ **Modification** - Modifying, adapting, or creating derivative works  
+❌ **Distribution** - Distributing, sublicensing, or sharing copies of the software  
+❌ **Reproduction** - Reproducing the software in any form  
+❌ **Public Display** - Deploying or hosting the software publicly  
+❌ **Reverse Engineering** - Decompiling, reverse engineering, or disassembling the software
+
+### 3. Permission Required
+
+Any use of this software beyond viewing on GitHub requires **explicit written permission** from the copyright holders:
+
+- **Wiame El Hafid** - wiame.el.hafid27@gmail.com
+- **Houssam Rjili** - rjilihoussam55@gmail.com
+
+Requests must include:
+- Your name and affiliation
+- Intended use case
+- Duration of use
+- Scope of access needed
+
+### 4. Educational Institutions
+
+Educational institutions wishing to use this software for teaching purposes must:
+
+1. Contact the copyright holders in advance
+2. Receive written authorization
+3. Provide proper attribution
+4. Limit use to non-commercial educational activities
+5. Not redistribute to students or third parties
+
+### 5. Attribution
+
+If permission is granted for educational reference, you must provide attribution as follows:
+
+```
+WERBEAUTY - Luxury Cosmetics E-Commerce Platform
+Copyright (c) 2025 Wiame El Hafid & Houssam Rjili
+GitHub: https://github.com/WE2722/WERBeauty
+Used with permission for educational purposes only
+```
+
+### 6. Intellectual Property
+
+All intellectual property rights, including but not limited to:
+- Source code
+- UI/UX design
+- Business logic
+- Database schemas
+- Documentation
+- Branding and assets
+
+remain the exclusive property of Wiame El Hafid and Houssam Rjili.
+
+### 7. No Warranty
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+
+### 8. Liability
+
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+### 9. Enforcement
+
+Unauthorized use of this software may result in:
+- Legal action for copyright infringement
+- Pursuit of damages and legal fees
+- Takedown requests to hosting platforms
+- Academic integrity violations (for students)
+
+### 10. Third-Party Components
+
+This software uses third-party open-source libraries (listed in requirements.txt) which remain under their respective licenses. This proprietary license applies only to the WERBEAUTY application code and does not affect the licenses of third-party dependencies.
+
+### 11. Termination
+
+Any permission granted may be revoked at any time at the sole discretion of the copyright holders. Upon revocation, you must immediately cease all use and destroy any copies in your possession.
+
+### 12. Governing Law
+
+This license shall be governed by and construed in accordance with the laws of Morocco.
+
+---
+
+## Contact for Licensing
+
+For licensing inquiries, permission requests, or questions:
+
+**Primary Contact:**  
+Wiame El Hafid  
+Email: wiame.el.hafid27@gmail.com  
+GitHub: [@WE2722](https://github.com/WE2722)
+
+**Secondary Contact:**  
+Houssam Rjili  
+Email: rjilihoussam55@gmail.com  
+GitHub: [@HxRjili](https://github.com/HxRjili)
+
+---
+
+**Last Updated:** December 7, 2025
+
+**Version:** 2.0 - Proprietary Educational License

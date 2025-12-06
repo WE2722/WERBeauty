@@ -6,9 +6,11 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.50.0-FF4B4B?style=for-the-badge&logo=streamlit)](https://streamlit.io)
 [![Botpress](https://img.shields.io/badge/Botpress-AI_Chatbot-6C63FF?style=for-the-badge)](https://botpress.com)
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python)](https://python.org)
-[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+[![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)](LICENSE)
 
 *An elegant, AI-powered beauty e-commerce application built with Streamlit and Botpress*
+
+**⚠️ IMPORTANT: This repository is for viewing and educational reference only. Commercial use, cloning, or modification without written permission is prohibited. See [LICENSE](LICENSE) for details.**
 
 [Features](#-features) • [Demo](#-demo) • [Installation](#-installation) • [Usage](#-usage) • [Tech Stack](#-tech-stack) • [Contributing](#-contributing)
 
@@ -485,7 +487,26 @@ We welcome contributions! Here's how you can help:
 
 ## 📝 License
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+This project is licensed under a **Proprietary Educational License** - see the [LICENSE](LICENSE) file for full details.
+
+### License Summary
+
+**✅ You CAN:**
+- View the source code on GitHub
+- Study the code for learning purposes
+- Reference it in academic work (with attribution)
+
+**❌ You CANNOT:**
+- Use for commercial purposes
+- Clone or download without permission
+- Modify or create derivative works
+- Distribute or share copies
+- Deploy publicly
+
+**📧 Need Permission?**  
+Contact: wiame.el.hafid27@gmail.com or rjilihoussam55@gmail.com
+
+For educational institutions and special use cases, written permission may be granted on a case-by-case basis.
 
 ---
 
