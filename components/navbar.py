@@ -5,6 +5,7 @@ Fixed top navigation with transparent to solid scroll effect.
 
 import streamlit as st
 from config.constants import NAV_ITEMS, BRAND_NAME
+from utils.auth_manager import is_logged_in, get_current_user, logout_user
 
 
 def render_navbar():
@@ -14,6 +15,8 @@ def render_navbar():
     cart_count = len(st.session_state.get("cart", []))
     favorites_count = len(st.session_state.get("favorites", []))
     current_page = st.session_state.get("current_page", "home")
+    logged_in = is_logged_in()
+    user = get_current_user() if logged_in else None
     
     # Logo and title
     st.markdown(f"""
@@ -28,7 +31,10 @@ def render_navbar():
     """, unsafe_allow_html=True)
     
     # Create navigation buttons using Streamlit
-    col1, col2, col3, col4, col5, col6 = st.columns(6)
+    if logged_in:
+        col1, col2, col3, col4, col5, col6, col7 = st.columns(7)
+    else:
+        col1, col2, col3, col4, col5, col6, col7 = st.columns(7)
     
     with col1:
         if st.button("🏠 Home", key="nav_home", use_container_width=True):
@@ -61,5 +67,18 @@ def render_navbar():
         if st.button(cart_label, key="nav_cart", use_container_width=True):
             st.session_state["current_page"] = "cart"
             st.rerun()
+    
+    with col7:
+        if logged_in:
+            # Show profile button with user name
+            user_name = user.get("name", "User").split()[0] if user else "Profile"
+            if st.button(f"👤 {user_name}", key="nav_profile", use_container_width=True):
+                st.session_state["current_page"] = "profile"
+                st.rerun()
+        else:
+            # Show login button
+            if st.button("🔐 Login", key="nav_login", use_container_width=True):
+                st.session_state["current_page"] = "login"
+                st.rerun()
     
     st.markdown("---")

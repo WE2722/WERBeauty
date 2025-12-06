@@ -32,6 +32,15 @@ def route_to_page():
     elif current_page == "payment":
         from pages import payment
         payment.render()
+    elif current_page == "login":
+        from pages import login
+        login.render()
+    elif current_page == "signup":
+        from pages import signup
+        signup.render()
+    elif current_page == "profile":
+        from pages import profile
+        profile.render()
     else:
         from pages import home
         home.render()
