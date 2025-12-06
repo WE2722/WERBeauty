@@ -107,16 +107,20 @@ def render():
                         </div>
                         ''', unsafe_allow_html=True)
                         
-                        st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
-                        
-                        # Go to login button
-                        if st.button("Go to Login Page", use_container_width=True, type="primary"):
-                            st.session_state["current_page"] = "login"
-                            st.rerun()
+                        # Set flag to show login button outside form
+                        st.session_state["password_reset_success"] = True
                     else:
                         st.error(f"❌ {message}")
         
         st.markdown('</div>', unsafe_allow_html=True)
+        
+        # Go to login button (outside form)
+        if st.session_state.get("password_reset_success", False):
+            st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
+            if st.button("Go to Login Page", use_container_width=True, type="primary", key="goto_login_after_reset"):
+                st.session_state["password_reset_success"] = False
+                st.session_state["current_page"] = "login"
+                st.rerun()
         
         # Back to login link
         st.markdown("<div style='height: 1.5rem;'></div>", unsafe_allow_html=True)
