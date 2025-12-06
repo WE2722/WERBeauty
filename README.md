@@ -411,9 +411,11 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 - **Wiame El Hafid** - Developer & Designer
   - GitHub: [@WE2722](https://github.com/WE2722)
+  - Email: wiame.el.hafid27@gmail.com
   
 - **Houssam Rjili** - Developer & AI Integration
-  - GitHub: [Profile Link]
+  - GitHub: [@HxRjili](https://github.com/HxRjili)
+  - Email: rjilihoussam55@gmail.com
 
 ### Acknowledgments
 
