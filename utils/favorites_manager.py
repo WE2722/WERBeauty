@@ -7,6 +7,15 @@ import streamlit as st
 from typing import Dict, List
 
 
+def sync_favorites():
+    """Sync favorites to user account if logged in."""
+    try:
+        from utils.auth_manager import sync_favorites_to_user
+        sync_favorites_to_user()
+    except:
+        pass  # User not logged in or sync failed
+
+
 def get_favorites() -> List[str]:
     """
     Get the current favorites from session state. 
@@ -39,6 +48,7 @@ def add_to_favorites(product: Dict) -> bool:
     # Add product ID to favorites
     favorites.append(product_id)
     st.session_state["favorites"] = favorites
+    sync_favorites()
     return True
     
     return True
@@ -56,6 +66,7 @@ def remove_from_favorites(product_id: str) -> bool:
     """
     favorites = get_favorites()
     st.session_state["favorites"] = [item for item in favorites if item != product_id]
+    sync_favorites()
     return True
 def is_favorite(product_id: str) -> bool:
     """

@@ -14,6 +14,13 @@
       "skin_type": "Dry",
       "favorite_brands": [],
       "newsletter": false
-    }
+    },
+    "cart": [],
+    "favorites": [
+      "w001",
+      "w002",
+      "m001",
+      "m002"
+    ]
   }
 }

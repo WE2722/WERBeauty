@@ -100,7 +100,9 @@ def signup_user(email: str, password: str, name: str) -> tuple[bool, str]:
             "skin_type": "",
             "favorite_brands": [],
             "newsletter": True
-        }
+        },
+        "cart": [],
+        "favorites": []
     }
     
     save_users(users)
@@ -128,6 +130,40 @@ def login_user(email: str, password: str) -> tuple[bool, str, Optional[Dict]]:
     if users[email]["password"] != hash_password(password):
         return False, "Incorrect password. Please try again.", None
     
+    # Merge session cart and favorites with user's stored data
+    session_cart = st.session_state.get("cart", [])
+    session_favorites = st.session_state.get("favorites", [])
+    
+    # Initialize if missing
+    if "cart" not in users[email]:
+        users[email]["cart"] = []
+    if "favorites" not in users[email]:
+        users[email]["favorites"] = []
+    
+    # Merge session items with user's stored items
+    # For cart: merge items, avoiding duplicates
+    for session_item in session_cart:
+        found = False
+        for user_item in users[email]["cart"]:
+            if user_item["id"] == session_item["id"]:
+                user_item["quantity"] += session_item["quantity"]
+                found = True
+                break
+        if not found:
+            users[email]["cart"].append(session_item)
+    
+    # For favorites: merge IDs, avoiding duplicates
+    for fav_id in session_favorites:
+        if fav_id not in users[email]["favorites"]:
+            users[email]["favorites"].append(fav_id)
+    
+    # Save merged data
+    save_users(users)
+    
+    # Load user's cart and favorites into session
+    st.session_state["cart"] = users[email]["cart"]
+    st.session_state["favorites"] = users[email]["favorites"]
+    
     return True, "Login successful!", users[email]
 
 
@@ -135,6 +171,15 @@ def logout_user() -> None:
     """
     Log out the current user.
     """
+    # Save cart and favorites to user account before logout
+    email = get_current_user_email()
+    if email:
+        users = load_users()
+        if email in users:
+            users[email]["cart"] = st.session_state.get("cart", [])
+            users[email]["favorites"] = st.session_state.get("favorites", [])
+            save_users(users)
+    
     if "user" in st.session_state:
         del st.session_state["user"]
     if "user_email" in st.session_state:
@@ -263,3 +308,48 @@ def change_password(email: str, old_password: str, new_password: str) -> tuple[b
     save_users(users)
     
     return True, "Password changed successfully!"
+
+
+def sync_cart_to_user() -> None:
+    """
+    Sync current session cart to user account.
+    Call this after cart operations when user is logged in.
+    """
+    email = get_current_user_email()
+    if email:
+        users = load_users()
+        if email in users:
+            users[email]["cart"] = st.session_state.get("cart", [])
+            save_users(users)
+
+
+def sync_favorites_to_user() -> None:
+    """
+    Sync current session favorites to user account.
+    Call this after favorites operations when user is logged in.
+    """
+    email = get_current_user_email()
+    if email:
+        users = load_users()
+        if email in users:
+            users[email]["favorites"] = st.session_state.get("favorites", [])
+            save_users(users)
+
+
+def load_user_data_to_session() -> None:
+    """
+    Load user's cart and favorites from account into session.
+    Call this after login.
+    """
+    email = get_current_user_email()
+    if email:
+        users = load_users()
+        if email in users:
+            # Initialize if missing
+            if "cart" not in users[email]:
+                users[email]["cart"] = []
+            if "favorites" not in users[email]:
+                users[email]["favorites"] = []
+            
+            st.session_state["cart"] = users[email]["cart"]
+            st.session_state["favorites"] = users[email]["favorites"]

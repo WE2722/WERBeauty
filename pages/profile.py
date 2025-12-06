@@ -8,6 +8,8 @@ from utils.auth_manager import (
     is_logged_in, get_current_user, get_current_user_email,
     update_user_profile, update_user_preferences, change_password, logout_user
 )
+from utils.order_manager import get_user_orders, cancel_order
+from utils.helpers import format_price
 
 
 def render():
@@ -171,14 +173,92 @@ def render():
         st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
         st.markdown("### Order History")
         
-        # Placeholder for orders
-        st.info("📦 You haven't placed any orders yet. Start shopping to see your order history here!")
+        # Get user orders
+        orders = get_user_orders()
         
-        st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
-        
-        if st.button("🛍️ Start Shopping", use_container_width=True):
-            st.session_state["current_page"] = "women"
-            st.rerun()
+        if not orders:
+            st.info("📦 You haven't placed any orders yet. Start shopping to see your order history here!")
+            st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
+            
+            if st.button("🛍️ Start Shopping", use_container_width=True):
+                st.session_state["current_page"] = "women"
+                st.rerun()
+        else:
+            # Display orders (newest first)
+            for order in reversed(orders):
+                order_id = order.get("order_id", "N/A")
+                order_date = order.get("date", "N/A")
+                order_status = order.get("status", "Processing")
+                order_total = order.get("total", 0)
+                order_items = order.get("items", [])
+                
+                # Status color
+                status_colors = {
+                    "Processing": "#FFA500",
+                    "Shipped": "#2196F3",
+                    "Delivered": "#4CAF50",
+                    "Cancelled": "#F44336"
+                }
+                status_color = status_colors.get(order_status, "#666")
+                
+                # Order card
+                st.markdown(f"""
+                <div style="
+                    background: rgba(255, 255, 255, 0.05);
+                    backdrop-filter: blur(10px);
+                    padding: 1.5rem;
+                    border-radius: 16px;
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    margin-bottom: 1rem;
+                ">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <div>
+                            <h3 style="margin: 0; color: #B76E79; font-size: 1.1rem;">Order #{order_id}</h3>
+                            <p style="margin: 0.25rem 0 0 0; color: #999; font-size: 0.9rem;">{order_date}</p>
+                        </div>
+                        <div style="
+                            padding: 0.5rem 1rem;
+                            border-radius: 20px;
+                            background: {status_color}20;
+                            color: {status_color};
+                            font-weight: 600;
+                            font-size: 0.9rem;
+                        ">{order_status}</div>
+                    </div>
+                </div>
+                """, unsafe_allow_html=True)
+                
+                # Order items
+                with st.expander(f"📦 View {len(order_items)} item(s) - Total: {format_price(order_total)}"):
+                    for item in order_items:
+                        col1, col2, col3 = st.columns([2, 1, 1])
+                        with col1:
+                            st.markdown(f"**{item.get('name', 'Unknown')}**")
+                            st.caption(f"Brand: {item.get('brand', 'N/A')}")
+                        with col2:
+                            st.markdown(f"Qty: {item.get('quantity', 1)}")
+                        with col3:
+                            st.markdown(f"{format_price(item.get('price', 0))}")
+                    
+                    st.markdown("<div style='height: 0.5rem;'></div>", unsafe_allow_html=True)
+                    
+                    # Order actions
+                    col_a, col_b = st.columns(2)
+                    
+                    with col_a:
+                        if order_status == "Processing":
+                            if st.button(f"❌ Cancel Order", key=f"cancel_{order_id}", use_container_width=True):
+                                if cancel_order(order_id):
+                                    st.success("✅ Order cancelled successfully!")
+                                    st.rerun()
+                                else:
+                                    st.error("Failed to cancel order.")
+                    
+                    with col_b:
+                        if st.button(f"📧 Contact Support", key=f"support_{order_id}", use_container_width=True):
+                            st.info("💬 Please email support@werbeauty.com for assistance.")
+                
+                st.markdown("<div style='height: 0.5rem;'></div>", unsafe_allow_html=True)
     
     st.markdown("<div style='height: 3rem;'></div>", unsafe_allow_html=True)
 

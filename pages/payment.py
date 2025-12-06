@@ -10,7 +10,8 @@ from utils.helpers import (
     validate_card_number, validate_expiry_date, validate_cvv, mask_card_number
 )
 from utils.animation import render_success_animation
-from config. constants import SHIPPING_OPTIONS
+from utils.order_manager import create_order
+from config.constants import SHIPPING_OPTIONS
 
 
 def render():
@@ -323,8 +324,15 @@ def render_checkout_form():
             for error in errors:
                 st.error(error)
         else:
+            # Generate order ID
+            order_id = generate_order_id()
+            
+            # Calculate total with shipping
+            cart_totals = get_cart_total()
+            total = cart_totals['total']
+            
             # Save checkout data
-            st.session_state["checkout_data"] = {
+            checkout_data = {
                 "first_name": first_name,
                 "last_name": last_name,
                 "email": email,
@@ -334,10 +342,20 @@ def render_checkout_form():
                 "state": state,
                 "zip_code": zip_code,
                 "country": country,
-                "card_last_four": card_number[-4:] if card_number else "0000"
+                "card_last_four": card_number[-4:] if card_number else "0000",
+                "shipping_method": st.session_state.get("shipping_method", "Standard")
             }
-            st.session_state["order_id"] = generate_order_id()
+            
+            # Create order in database
+            cart_items = get_cart()
+            create_order(order_id, cart_items, checkout_data, total)
+            
+            # Save to session for confirmation page
+            st.session_state["checkout_data"] = checkout_data
+            st.session_state["order_id"] = order_id
             st.session_state["order_complete"] = True
+            
+            # Clear cart
             clear_cart()
             st.rerun()
 

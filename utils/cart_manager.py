@@ -6,6 +6,15 @@ Handles cart operations using session state.
 import streamlit as st
 
 
+def sync_cart():
+    """Sync cart to user account if logged in."""
+    try:
+        from utils.auth_manager import sync_cart_to_user
+        sync_cart_to_user()
+    except:
+        pass  # User not logged in or sync failed
+
+
 def get_cart():
     """Get the current cart from session state."""
     if "cart" not in st.session_state:
@@ -41,6 +50,7 @@ def add_to_cart(product, quantity=1):
     }
     cart.append(cart_item)
     st.session_state.cart = cart
+    sync_cart()
 
 
 def remove_from_cart(product_id):
@@ -52,6 +62,7 @@ def remove_from_cart(product_id):
     """
     cart = get_cart()
     st.session_state.cart = [item for item in cart if item["id"] != product_id]
+    sync_cart()
 
 
 def update_quantity(product_id, quantity):
@@ -71,11 +82,13 @@ def update_quantity(product_id, quantity):
                 item["quantity"] = quantity
             break
     st.session_state.cart = cart
+    sync_cart()
 
 
 def clear_cart():
     """Clear all items from the cart."""
     st.session_state.cart = []
+    sync_cart()
 
 
 def is_in_cart(product_id):
