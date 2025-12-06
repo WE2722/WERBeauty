@@ -66,7 +66,8 @@ def render():
                 with col_b:
                     new_country = st.text_input("Country", value=user.get("profile", {}).get("country", ""))
                 
-                new_birthday = st.date_input("Birthday", value=None)
+                from datetime import date
+                new_birthday = st.date_input("Birthday", value=None, min_value=date(1900, 1, 1), max_value=date(2025, 12, 31))
                 
                 st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
                 
