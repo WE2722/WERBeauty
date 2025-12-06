@@ -9,7 +9,9 @@ from utils.auth_manager import (
     update_user_profile, update_user_preferences, change_password, logout_user
 )
 from utils.order_manager import get_user_orders, cancel_order
+from utils.review_manager import get_user_reviews, delete_review
 from utils.helpers import format_price
+from datetime import date
 
 
 def render():
@@ -34,7 +36,7 @@ def render():
     st.markdown(f'<div style="text-align: center;"><h1 style="font-family: \'Playfair Display\', serif; font-size: 2.5rem; color: #B76E79; margin-bottom: 0.5rem;">My Profile</h1><p style="color: rgba(255,255,255,0.7); font-size: 1.1rem; margin-bottom: 2rem;">Welcome back, {user["name"]}! 👋</p></div>', unsafe_allow_html=True)
     
     # Tabs for different sections
-    tab1, tab2, tab3, tab4 = st.tabs(["📝 Profile Info", "⚙️ Preferences", "🔒 Security", "📦 Orders"])
+    tab1, tab2, tab3, tab4, tab5 = st.tabs(["📝 Profile Info", "⚙️ Preferences", "🔒 Security", "📦 Orders", "⭐ My Reviews"])
     
     # Tab 1: Profile Information
     with tab1:
@@ -66,8 +68,17 @@ def render():
                 with col_b:
                     new_country = st.text_input("Country", value=user.get("profile", {}).get("country", ""))
                 
-                from datetime import date
-                new_birthday = st.date_input("Birthday", value=None, min_value=date(1900, 1, 1), max_value=date(2025, 12, 31))
+                # Parse existing birthday if available
+                existing_birthday = user.get("profile", {}).get("birthday", "")
+                birthday_value = None
+                if existing_birthday:
+                    try:
+                        from datetime import datetime
+                        birthday_value = datetime.strptime(existing_birthday, "%Y-%m-%d").date()
+                    except:
+                        birthday_value = None
+                
+                new_birthday = st.date_input("Birthday", value=birthday_value, min_value=date(1900, 1, 1), max_value=date(2025, 12, 31))
                 
                 st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
                 
@@ -258,6 +269,67 @@ def render():
                     with col_b:
                         if st.button(f"📧 Contact Support", key=f"support_{order_id}", use_container_width=True):
                             st.info("💬 Please email support@werbeauty.com for assistance.")
+                
+                st.markdown("<div style='height: 0.5rem;'></div>", unsafe_allow_html=True)
+    
+    # Tab 5: My Reviews
+    with tab5:
+        st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
+        st.markdown("### My Reviews & Comments")
+        
+        # Get user reviews
+        user_reviews = get_user_reviews()
+        
+        if not user_reviews:
+            st.info("⭐ You haven't written any reviews yet. Share your experience with products you've tried!")
+            st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
+            
+            if st.button("🛍️ Browse Products", use_container_width=True):
+                st.session_state["current_page"] = "women"
+                st.rerun()
+        else:
+            st.markdown(f"<p style='color: rgba(255,255,255,0.7);'>You have written {len(user_reviews)} review(s)</p>", unsafe_allow_html=True)
+            st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
+            
+            # Display reviews (newest first)
+            for review in reversed(user_reviews):
+                product_id = review.get("product_id", "N/A")
+                rating = review.get("rating", 0)
+                comment = review.get("comment", "")
+                review_date = review.get("date", "N/A")
+                
+                # Rating stars
+                stars = "⭐" * rating + "☆" * (5 - rating)
+                
+                # Review card
+                st.markdown(f"""
+                <div style="
+                    background: rgba(255, 255, 255, 0.05);
+                    backdrop-filter: blur(10px);
+                    padding: 1.5rem;
+                    border-radius: 16px;
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    margin-bottom: 1rem;
+                ">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                        <div style="font-size: 1.3rem;">{stars}</div>
+                        <div style="color: #999; font-size: 0.9rem;">{review_date}</div>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.9); margin: 0.5rem 0; line-height: 1.6;">{comment}</p>
+                    <p style="color: #B76E79; font-size: 0.9rem; margin-top: 0.5rem;">Product ID: {product_id}</p>
+                </div>
+                """, unsafe_allow_html=True)
+                
+                # Review actions
+                col_del, col_edit = st.columns([1, 3])
+                
+                with col_del:
+                    if st.button(f"🗑️ Delete", key=f"delete_review_{product_id}", use_container_width=True):
+                        if delete_review(product_id):
+                            st.success("✅ Review deleted successfully!")
+                            st.rerun()
+                        else:
+                            st.error("Failed to delete review.")
                 
                 st.markdown("<div style='height: 0.5rem;'></div>", unsafe_allow_html=True)
     

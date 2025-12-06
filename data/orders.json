@@ -44,6 +44,51 @@
       },
       "total": 1164.4560000000001,
       "status": "Cancelled"
+    },
+    {
+      "order_id": "WER-20251206095634-2O287D",
+      "date": "2025-12-06 09:56:34",
+      "items": [
+        {
+          "id": "w012",
+          "name": "Midnight Rose Perfume",
+          "price": 185.0,
+          "image": "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=400&h=400&fit=crop",
+          "brand": "",
+          "quantity": 1
+        },
+        {
+          "id": "w002",
+          "name": "Rose Gold Lipstick",
+          "price": 42.0,
+          "image": "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=400&h=400&fit=crop",
+          "brand": "",
+          "quantity": 1
+        },
+        {
+          "id": "w009",
+          "name": "Fleur de Paris Perfume",
+          "price": 165.0,
+          "image": "https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=400&fit=crop",
+          "brand": "",
+          "quantity": 1
+        }
+      ],
+      "checkout_data": {
+        "first_name": "Houssam",
+        "last_name": "RJILI",
+        "email": "Wiame@gmail.com",
+        "phone": "0657932968",
+        "address": "xxxjk",
+        "city": "mekneS",
+        "state": "SDFG",
+        "zip_code": "50000",
+        "country": "United States",
+        "card_last_four": "3456",
+        "shipping_method": "standard"
+      },
+      "total": 381.024,
+      "status": "Processing"
     }
   ]
 }

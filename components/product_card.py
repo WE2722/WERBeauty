@@ -6,6 +6,8 @@ Displays individual products with animations and interactions.
 import streamlit as st
 from utils.cart_manager import add_to_cart, remove_from_cart, is_in_cart
 from utils.favorites_manager import add_to_favorites, remove_from_favorites, is_favorite
+from utils.review_manager import get_product_reviews, get_average_rating, get_review_count, add_review
+from utils.auth_manager import is_logged_in
 
 
 def render_star_rating(rating: float) -> str:
@@ -48,6 +50,13 @@ def render_product_card(product: dict, index: int, show_actions: bool = True, ke
     badge = product.get("badge", "")
     category = product.get("category", "")
     
+    # Get actual reviews data
+    avg_rating = get_average_rating(product_id)
+    review_count = get_review_count(product_id)
+    
+    # Use actual rating if reviews exist, otherwise use product default rating
+    display_rating = avg_rating if review_count > 0 else rating
+    
     # Generate unique key
     unique_key = f"{key_prefix}_{product_id}_{index}" if key_prefix else f"{product_id}_{index}"
     
@@ -64,12 +73,12 @@ def render_product_card(product: dict, index: int, show_actions: bool = True, ke
     fav_title = 'Remove from' if in_favorites else 'Add to'
     
     # Build card HTML as single line
-    card_html = f'<div class="product-card animate-fadeInUp delay-{(index % 5) + 1}" style="animation-delay: {index * 0.1}s;">{badge_html}<div class="product-card-favorite" title="{fav_title} favorites">{fav_icon}</div><img src="{image}" alt="{name}" class="product-card-image" onerror="this.src=\'https://via.placeholder.com/400x400?text=WERBEAUTY\'"><div class="product-card-content"><p style="color: #888; font-size: 0.85rem; margin-bottom: 0.3rem;">{category}</p><h3 class="product-card-title">{name}</h3>{render_star_rating(rating)}<p class="product-card-price">${price:.2f}</p></div></div>'
+    card_html = f'<div class="product-card animate-fadeInUp delay-{(index % 5) + 1}" style="animation-delay: {index * 0.1}s;">{badge_html}<div class="product-card-favorite" title="{fav_title} favorites">{fav_icon}</div><img src="{image}" alt="{name}" class="product-card-image" onerror="this.src=\'https://via.placeholder.com/400x400?text=WERBEAUTY\'"><div class="product-card-content"><p style="color: #888; font-size: 0.85rem; margin-bottom: 0.3rem;">{category}</p><h3 class="product-card-title">{name}</h3><div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">{render_star_rating(display_rating)}<span style="color: #888; font-size: 0.85rem;">({review_count} reviews)</span></div><p class="product-card-price">${price:.2f}</p></div></div>'
     
     st.markdown(card_html, unsafe_allow_html=True)
     
     if show_actions:
-        col1, col2 = st.columns(2)
+        col1, col2, col3 = st.columns(3)
         
         with col1:
             if in_cart:
@@ -90,7 +99,15 @@ def render_product_card(product: dict, index: int, show_actions: bool = True, ke
                 if st.button("🤍 Save", key=f"fav_{unique_key}", use_container_width=True):
                     add_to_favorites(product)
                     st.rerun()
-
+        
+        with col3:
+            if st.button("⭐ Review", key=f"review_{unique_key}", use_container_width=True):
+                st.session_state[f"show_review_modal_{product_id}"] = True
+                st.rerun()
+        
+        # Review modal
+        if st.session_state.get(f"show_review_modal_{product_id}", False):
+            render_review_modal(product, product_id, unique_key)
 
 def render_product_grid(products: list, columns: int = 4, key_prefix: str = ""):
     """
@@ -112,3 +129,69 @@ def render_product_grid(products: list, columns: int = 4, key_prefix: str = ""):
         with cols[idx % columns]:
             render_product_card(product, idx, key_prefix=key_prefix)
             st.markdown("<div style='height: 1rem;'></div>", unsafe_allow_html=True)
+
+
+def render_review_modal(product, product_id, unique_key):
+    """Render review modal for a product."""
+    if not is_logged_in():
+        st.warning('⚠️ Please login to write a review.')
+        if st.button('Close', key=f'close_review_{unique_key}'):
+            st.session_state[f'show_review_modal_{product_id}'] = False
+            st.rerun()
+        return
+    st.markdown(f'<div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 24px; margin: 1rem 0;"><h3 style="color: #B76E79;">✍️ Write Review: {product.get("name")}</h3></div>', unsafe_allow_html=True)
+    with st.form(f'review_form_{unique_key}'):
+        rating = st.select_slider('Rating', options=[1, 2, 3, 4, 5], value=5, format_func=lambda x: '⭐' * x)
+        comment = st.text_area('Your Review', placeholder='Share your experience...', height=150)
+        col1, col2 = st.columns(2)
+        with col1:
+            submit = st.form_submit_button('Submit', use_container_width=True)
+        with col2:
+            cancel = st.form_submit_button('Cancel', use_container_width=True)
+        if submit and comment.strip():
+            if add_review(product_id, rating, comment):
+                st.success('✅ Review submitted!')
+                st.session_state[f'show_review_modal_{product_id}'] = False
+                st.rerun()
+        if cancel:
+            st.session_state[f'show_review_modal_{product_id}'] = False
+            st.rerun()
+    reviews = get_product_reviews(product_id)
+    if reviews:
+        st.markdown('### 📝 Customer Reviews')
+        for review in reversed(reviews[-5:]):
+            stars = '⭐' * review['rating']
+            st.markdown(f'<div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 12px; margin-bottom: 0.5rem;"><div style="display: flex; justify-content: space-between;"><strong style="color: #B76E79;">{review["user_name"]}</strong><span style="color: #888;">{review["date"][:10]}</span></div><div>{stars}</div><p>{review["comment"]}</p></div>', unsafe_allow_html=True)
+
+
+def render_review_modal(product, product_id, unique_key):
+    """Render review modal for a product."""
+    if not is_logged_in():
+        st.warning('Please login to write a review.')
+        if st.button('Close', key=f'close_review_{unique_key}'):
+            st.session_state[f'show_review_modal_{product_id}'] = False
+            st.rerun()
+        return
+    st.markdown(f'<div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 24px; margin: 1rem 0;"><h3 style="color: #B76E79;">Write Review: {product.get("name")}</h3></div>', unsafe_allow_html=True)
+    with st.form(f'review_form_{unique_key}'):
+        rating = st.select_slider('Rating', options=[1, 2, 3, 4, 5], value=5, format_func=lambda x: '⭐' * x)
+        comment = st.text_area('Your Review', placeholder='Share your experience...', height=150)
+        col1, col2 = st.columns(2)
+        with col1:
+            submit = st.form_submit_button('Submit', use_container_width=True)
+        with col2:
+            cancel = st.form_submit_button('Cancel', use_container_width=True)
+        if submit and comment.strip():
+            if add_review(product_id, rating, comment):
+                st.success('Review submitted!')
+                st.session_state[f'show_review_modal_{product_id}'] = False
+                st.rerun()
+        if cancel:
+            st.session_state[f'show_review_modal_{product_id}'] = False
+            st.rerun()
+    reviews = get_product_reviews(product_id)
+    if reviews:
+        st.markdown('### Customer Reviews')
+        for review in reversed(reviews[-5:]):
+            stars = '⭐' * review['rating']
+            st.markdown(f'<div style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 12px; margin-bottom: 0.5rem;"><div style="display: flex; justify-content: space-between;"><strong style="color: #B76E79;">{review["user_name"]}</strong><span style="color: #888;">{review["date"][:10]}</span></div><div>{stars}</div><p>{review["comment"]}</p></div>', unsafe_allow_html=True)
