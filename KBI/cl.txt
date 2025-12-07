@@ -1,0 +1,1457 @@
+🤖 WERBEAUTY Chatbot - Complete Q&A Knowledge Base
+
+📋 1. GENERAL INFORMATION
+
+Q: What is WERBEAUTY?
+
+A: WERBEAUTY is a luxury cosmetics e-commerce platform offering premium beauty products for both women and men. We specialize in high-quality skincare, makeup, fragrances, and grooming essentials. Our mission is to help you discover your radiant beauty with elegant, effective products.
+
+Q: What makes WERBEAUTY different?
+
+A: We stand out through:
+
+Curated luxury products from premium brands
+
+AI-powered personalized recommendations
+
+24/7 customer support via our intelligent chatbot
+
+Elegant shopping experience with intuitive design
+
+Expert beauty advice and product guidance
+
+Fast, reliable shipping worldwide
+
+Q: Who created WERBEAUTY?
+
+A: WERBEAUTY was created by Wiame El Hafid and Houssam Rjili as a school project to demonstrate advanced skills in Streamlit and Botpress technologies. It showcases modern e-commerce capabilities with AI integration.
+
+Q: How can I contact WERBEAUTY?
+
+A: You can reach us through:
+
+This AI chatbot (available 24/7)
+
+Email: support@werbeauty.com
+
+Social media: Instagram, Facebook, Twitter
+
+Contact form on our website
+
+We typically respond within 24 hours during business days.
+
+🛍 2. PRODUCT CATALOG
+
+Q: What products do you offer?
+
+A: We offer an extensive range of luxury cosmetics:
+
+For Women:
+
+Skincare: Serums, moisturizers, cleansers, masks, eye creams
+
+Makeup: Foundations, lipsticks, eyeshadows, mascaras, blushes
+
+Fragrances: Perfumes, body mists, scented lotions
+
+Hair Care: Shampoos, conditioners, treatments, styling products
+
+For Men:
+
+Skincare: Face washes, moisturizers, anti-aging serums
+
+Grooming: Beard oils, shaving products, aftershaves
+
+Fragrances: Colognes, body sprays
+
+Hair Care: Styling products, scalp treatments
+
+Q: Are your products authentic?
+
+A: Absolutely! All WERBEAUTY products are 100% authentic and sourced directly from authorized distributors. We guarantee genuine luxury cosmetics with full manufacturer warranties.
+
+Q: Do you have organic/natural products?
+
+A: Yes! We have a dedicated selection of organic and natural beauty products. Look for the "Natural" or "Organic" badges on product pages. These products are free from parabens, sulfates, and harmful chemicals.
+
+Q: What are your best-selling products?
+
+A: Our top sellers include:
+
+Radiant Glow Serum - Anti-aging vitamin C serum ($89.99)
+
+Velvet Matte Lipstick Collection - Long-lasting colors ($45.00)
+
+Luxury Rose Perfume - Signature fragrance ($129.99)
+
+Hydrating Face Mask - Deep moisture treatment ($35.00)
+
+Men's Beard Growth Oil - Premium grooming ($39.99)
+
+Q: Do you add new products regularly?
+
+A: Yes! We add new arrivals weekly. Check our "New Arrivals" section or follow us on social media for the latest product launches and exclusive releases.
+
+Q: Can I request a specific product?
+
+A: Absolutely! We value customer feedback. Please use the contact form or message us here with your product request, and we'll do our best to add it to our catalog.
+
+🔍 3. PRODUCT SEARCH & FILTERING
+
+Q: How do I search for products?
+
+A: Use the search bar at the top of any page. You can search by:
+
+Product name (e.g., "lipstick")
+
+Category (e.g., "skincare")
+
+Brand name
+
+Ingredients (e.g., "vitamin C")
+
+Skin concern (e.g., "anti-aging")
+
+Q: How do I filter products?
+
+A: On any collection page (Women/Men), you can filter by:
+
+Category: Skincare, Makeup, Fragrance, Hair Care
+
+Price Range: Drag the slider to set your budget
+
+Rating: Show only 4+ star products
+
+Availability: In stock items only
+
+Q: Can you recommend products for my skin type?
+
+A: Of course! Tell me your skin type:
+
+Oily Skin: Try our Oil-Control Serum or Mattifying Moisturizer
+
+Dry Skin: Check out Hyaluronic Acid Serum or Rich Cream
+
+Combination: Balance Toner or Lightweight Gel works great
+
+Sensitive: Our Gentle Cleansing Line is perfect
+
+Mature Skin: Anti-Aging Collection with retinol and peptides
+
+Q: What products are good for acne?
+
+A: For acne-prone skin, I recommend:
+
+Salicylic Acid Cleanser ($28.00) - Clears pores
+
+Niacinamide Serum ($45.00) - Reduces inflammation
+
+Tea Tree Face Mask ($32.00) - Controls oil
+
+Spot Treatment Gel ($18.00) - Targets breakouts
+
+All are non-comedogenic and dermatologist-tested.
+
+Q: Show me products under $50
+
+A: Here are excellent options under $50:
+
+Hydrating Toner ($24.00)
+
+Vitamin C Brightening Cream ($38.00)
+
+Natural Lip Balm Set ($15.00)
+
+Cleansing Oil ($42.00)
+
+Eye Cream ($45.00)
+
+Use the price filter slider to see all products in your budget!
+
+🛒 4. SHOPPING CART & CHECKOUT
+
+Q: How do I add items to my cart?
+
+A: Simply click the "Add to Cart" button on any product card or product detail page. You'll see a confirmation message, and the cart icon will update with the item count.
+
+Q: Can I change quantities in my cart?
+
+A: Yes! In your cart page:
+
+Click the "+" button to increase quantity
+
+Click the "-" button to decrease quantity
+
+Click the trash icon to remove an item completely
+
+The total price updates automatically.
+
+Q: How do I apply a discount code?
+
+A: At checkout:
+
+Look for the "Discount Code" field
+
+Enter your promo code
+
+Click "Apply"
+
+The discount will be reflected in your total
+
+Check our emails and social media for exclusive codes!
+
+Q: Is my cart saved if I leave?
+
+A: Yes! Your cart is saved in your browser session. If you're logged in, your cart syncs across devices, so you can start shopping on mobile and complete on desktop.
+
+Q: What's the minimum order amount?
+
+A: There's no minimum order amount! However, orders over $75 qualify for free standard shipping.
+
+Q: Can I save items for later?
+
+A: Absolutely! Click the heart icon (♥) on any product to add it to your Favorites/Wishlist. Access your saved items anytime from the Favorites page.
+
+💳 5. PAYMENT & PRICING
+
+Q: What payment methods do you accept?
+
+A: We accept:
+
+Credit Cards (Visa, Mastercard, American Express, Discover)
+
+Debit Cards
+
+PayPal
+
+Apple Pay
+
+Google Pay
+
+Shop Pay
+
+All payments are processed securely with SSL encryption.
+
+Q: Is it safe to enter my card information?
+
+A: Yes! We use industry-standard SSL encryption and PCI-DSS compliant payment processors. We never store your full card details on our servers.
+
+Q: Do prices include tax?
+
+A: Prices shown are before tax. Sales tax will be calculated at checkout based on your shipping address and local tax regulations.
+
+Q: Do you offer payment plans?
+
+A: For orders over $200, we offer installment payment options through:
+
+Afterpay (4 interest-free payments)
+
+Klarna (flexible payment schedules)
+
+Shop Pay Installments
+
+Options appear at checkout if eligible.
+
+Q: Can I get a price match?
+
+A: We stand by our competitive pricing. If you find an identical product cheaper elsewhere (from an authorized retailer), contact us within 7 days of purchase with proof, and we'll refund the difference.
+
+Q: Do you have sales or promotions?
+
+A: Yes! We run regular promotions:
+
+Weekly Deals: Check homepage for featured discounts
+
+Seasonal Sales: Up to 40% off during major holidays
+
+New Customer Discount: 15% off your first order
+
+Birthday Rewards: Special gift during your birthday month
+
+Subscribe to our newsletter for exclusive offers!
+
+🚚 6. SHIPPING & DELIVERY
+
+Q: Where do you ship?
+
+A: We ship worldwide to over 100 countries including:
+
+United States and Canada
+
+European Union countries
+
+United Kingdom
+
+Australia and New Zealand
+
+Middle East and Asia
+
+Latin America
+
+Q: How much is shipping?
+
+A: Shipping rates:
+
+Standard (5-7 business days): $6.99 (FREE over $75)
+
+Express (2-3 business days): $14.99
+
+Overnight: $24.99
+
+International: Calculated at checkout based on location
+
+Q: When will my order arrive?
+
+A: Delivery times:
+
+Standard Domestic: 5-7 business days
+
+Express Domestic: 2-3 business days
+
+International: 7-21 business days depending on customs
+
+Orders placed before 2 PM EST ship same day!
+
+Q: How can I track my order?
+
+A: After your order ships, you'll receive:
+
+Tracking number via email
+
+SMS notification (if provided)
+
+Track directly on our website under "Track Order"
+
+Ask me here! Just say "Track order #[number]"
+
+Q: What if my package is delayed?
+
+A: If your package hasn't arrived within the estimated timeframe:
+
+Check tracking for updates
+
+Contact the carrier directly
+
+Reach out to us - we'll investigate and resolve the issue
+
+We offer full refunds or replacements for lost packages.
+
+Q: Do you ship to PO boxes?
+
+A: Yes! We ship to PO boxes via USPS. However, Express and Overnight options are not available for PO box addresses (standard shipping only).
+
+Q: Can I change my shipping address after ordering?
+
+A: If your order hasn't shipped yet, contact us immediately and we'll update the address. Once shipped, you'll need to contact the carrier directly to request address corrections.
+
+📦 7. RETURNS & EXCHANGES
+
+Q: What is your return policy?
+
+A: We offer a 30-day return policy:
+
+Returns accepted within 30 days of delivery
+
+Products must be unused and in original packaging
+
+Refund processed within 5-7 business days after receiving return
+
+Original shipping costs are non-refundable
+
+Q: How do I return an item?
+
+A: To return an item:
+
+Go to your order history
+
+Select the order and click "Request Return"
+
+Choose reason for return
+
+Print the prepaid return label
+
+Ship the item back within 7 days
+
+We'll email you confirmation once processed.
+
+Q: Can I exchange a product?
+
+A: Yes! Exchanges are handled as:
+
+Return your original item
+
+Place a new order for the desired product
+
+This ensures faster processing. Contact us if you need assistance!
+
+Q: What if I receive a damaged product?
+
+A: We're so sorry! If you receive a damaged item:
+
+Take photos of the damage and packaging
+
+Contact us within 48 hours
+
+We'll arrange immediate replacement or full refund
+
+No need to return the damaged item
+
+Your satisfaction is our priority!
+
+Q: Are sale items returnable?
+
+A: Yes! All sale items follow the same 30-day return policy. They must be unused and in original packaging for a full refund.
+
+Q: Who pays for return shipping?
+
+A: - Our Error/Damaged Item: We provide prepaid return label
+
+Change of Mind: Customer pays return shipping ($6.99)
+
+Defective Product: We cover all return costs
+
+Premium/VIP members get free returns!
+
+👤 8. ACCOUNT & PROFILE
+
+Q: Do I need an account to shop?
+
+A: No, you can checkout as a guest. However, creating an account offers:
+
+Order history tracking
+
+Saved addresses and payment methods
+
+Wishlist sync across devices
+
+Exclusive member-only deals
+
+Faster checkout
+
+Birthday rewards
+
+Q: How do I create an account?
+
+A: Click "Sign Up" in the top right corner:
+
+Enter your email and create a password
+
+Add your name and birthday (optional)
+
+Click "Create Account"
+
+You'll receive a welcome email with 15% off your first order!
+
+Q: I forgot my password
+
+A: No problem! Click "Forgot Password" on the login page:
+
+Enter your registered email
+
+Check your inbox for reset link
+
+Create a new password
+
+Log in with new credentials
+
+Still having trouble? Contact support!
+
+Q: How do I update my profile information?
+
+A: After logging in:
+
+Click your name in the top right
+
+Select "Profile Settings"
+
+Update email, password, address, or payment methods
+
+Click "Save Changes"
+
+All changes take effect immediately.
+
+Q: Can I delete my account?
+
+A: Yes, you have full control. To delete your account:
+
+Go to Profile Settings
+
+Scroll to "Account Management"
+
+Click "Delete Account"
+
+Confirm your decision
+
+Note: This action is permanent and deletes all order history.
+
+Q: How do I view my order history?
+
+A: Log in and click "My Orders" to see:
+
+All past purchases
+
+Order status and tracking
+
+Invoice downloads
+
+Reorder options
+
+Return/exchange requests
+
+🎁 9. RECOMMENDATIONS & PERSONALIZATION
+
+Q: How do you recommend products to me?
+
+A: Our AI recommendation engine uses:
+
+Your browsing history
+
+Past purchases
+
+Products in your cart
+
+Items you've favorited
+
+Similar customer preferences
+
+Trending products
+
+We analyze patterns to suggest products you'll love!
+
+Q: Can you recommend a gift?
+
+A: Absolutely! Tell me about the recipient:
+
+For Mom: Luxury Anti-Aging Set ($150)
+
+For Girlfriend: Rose Perfume + Lipstick Set ($99)
+
+For Dad: Men's Grooming Kit ($85)
+
+For Friend: Makeup Brush Set + Cleanser ($65)
+
+All gifts come with beautiful packaging!
+
+Q: What's trending right now?
+
+A: Currently trending:
+
+Glass Skin Serum - K-beauty inspired ($78)
+
+Matte Liquid Lipstick - 12 new shades ($42)
+
+Beard Growth Oil - Men's #1 seller ($39)
+
+Rose Gold Highlighter - Glow goddess ($52)
+
+Retinol Night Cream - Anti-aging ($95)
+
+Q: Recommend products for winter/summer
+
+A: Winter Must-Haves:
+
+Rich Moisturizing Cream
+
+Hydrating Face Oil
+
+Lip Repair Balm
+
+Hand Cream Set
+
+Summer Essentials:
+
+SPF 50 Sunscreen
+
+Lightweight Gel Moisturizer
+
+Oil-Free Foundation
+
+Setting Spray
+
+Q: What would pair well with [product]?
+
+A: Great question! For example:
+
+Vitamin C Serum → Add Hyaluronic Acid for hydration
+
+Foundation → Pair with Setting Powder and Primer
+
+Cleanser → Follow with Toner and Moisturizer
+
+Perfume → Match with Body Lotion in same scent
+
+Tell me what product you have, and I'll suggest perfect pairings!
+
+⭐ 10. REVIEWS & RATINGS
+
+Q: Are product reviews real?
+
+A: Yes! All reviews are from verified purchasers. We never post fake reviews. Each review includes:
+
+Star rating (1-5 stars)
+
+Written feedback
+
+Purchase verification badge
+
+Helpful vote count
+
+Review date
+
+Q: How can I leave a review?
+
+A: After receiving your order:
+
+Check your email for "Review Request"
+
+Click the product link
+
+Rate your experience (1-5 stars)
+
+Write your thoughts (optional)
+
+Submit review
+
+You'll earn 50 loyalty points for each review!
+
+Q: What do the star ratings mean?
+
+A: Our rating system:
+
+⭐⭐⭐⭐⭐ (5 stars): Excellent, highly recommend
+
+⭐⭐⭐⭐ (4 stars): Very good, minor issues
+
+⭐⭐⭐ (3 stars): Good, meets expectations
+
+⭐⭐ (2 stars): Below average, some concerns
+
+⭐ (1 star): Poor, not recommended
+
+Q: Can I trust low-rated products?
+
+A: Read reviews carefully! Sometimes low ratings are due to:
+
+Wrong expectations
+
+Allergic reactions (personal)
+
+Shipping damage (our error)
+
+User error (wrong application)
+
+Look for detailed reviews and common themes.
+
+Q: How do I report a fake review?
+
+A: If you suspect a review is fake:
+
+Click "Report" under the review
+
+Select reason (spam, fake, inappropriate)
+
+Provide details
+
+Our team investigates within 24 hours.
+
+💬 11. CUSTOMER SUPPORT
+
+Q: What are your customer service hours?
+
+A: Our AI chatbot (me!) is available 24/7 for instant help. For human support:
+
+Live Chat: Monday-Friday, 9 AM - 8 PM EST
+
+Email: Responded within 24 hours (business days)
+
+Phone: Monday-Friday, 10 AM - 6 PM EST
+
+Social Media: Daily monitoring
+
+Q: How quickly will you respond?
+
+A: Response times:
+
+Chatbot (AI): Instant, 24/7
+
+Live Chat: Average 2 minutes during hours
+
+Email: Within 24 hours
+
+Social Media: Within 4-6 hours
+
+Urgent issues? Use live chat for fastest help!
+
+Q: Can I speak to a human?
+
+A: Of course! While I can help with most questions, for complex issues:
+
+Say "speak to human" or "live agent"
+
+Our team will connect during business hours
+
+Or email support@werbeauty.com anytime
+
+I'll do my best to help first!
+
+Q: How do I file a complaint?
+
+A: We take complaints seriously:
+
+Contact us via email or live chat
+
+Describe the issue in detail
+
+Provide order number and photos if applicable
+
+We'll respond within 24 hours with a resolution plan
+
+Your satisfaction is our priority!
+
+Q: Do you have a phone number?
+
+A: Yes! Call us at:
+
+1-800-WER-BEAUTY (1-800-937-2328)
+
+Available Monday-Friday, 10 AM - 6 PM EST
+
+For after-hours support, use this chatbot!
+
+🎓 12. BEAUTY TIPS & ADVICE
+
+Q: What's a basic skincare routine?
+
+A: A simple routine includes:
+
+Morning:
+
+Cleanser - Remove overnight oils
+
+Toner - Balance pH
+
+Serum - Target concerns (Vitamin C)
+
+Moisturizer - Hydrate
+
+Sunscreen - SPF 30+ (essential!)
+
+Night:
+
+Cleanser - Remove makeup/dirt
+
+Toner - Prep skin
+
+Serum - Treatment (Retinol/Niacinamide)
+
+Eye Cream - Target fine lines
+
+Night Cream - Repair while sleeping
+
+Q: How often should I exfoliate?
+
+A: Depends on skin type:
+
+Oily Skin: 2-3 times per week
+
+Normal/Combination: 2 times per week
+
+Dry Skin: Once per week
+
+Sensitive: Once every 10 days
+
+Over-exfoliating causes irritation and damage!
+
+Q: When should I use retinol?
+
+A: Retinol tips:
+
+Age: Start in mid-20s for prevention
+
+Time: Always at night (photosensitive)
+
+Frequency: Start 2x/week, build to nightly
+
+Pair with: Moisturizer to reduce dryness
+
+Avoid: Pregnancy/breastfeeding
+
+Must: Wear SPF during the day!
+
+Q: How do I apply makeup for beginners?
+
+A: Basic makeup steps:
+
+Primer - Smooth canvas
+
+Foundation - Even skin tone
+
+Concealer - Hide blemishes/dark circles
+
+Powder - Set makeup
+
+Blush - Add color to cheeks
+
+Eyebrow - Fill and shape
+
+Mascara - Define lashes
+
+Lipstick - Complete the look
+
+Practice makes perfect!
+
+Q: What ingredients should I avoid?
+
+A: Common irritants to avoid:
+
+Parabens: Hormone disruptors
+
+Sulfates: Harsh, strip natural oils
+
+Fragrance: Can cause allergies
+
+Alcohol (denat.): Very drying
+
+Formaldehyde: Carcinogenic
+
+Phthalates: Health concerns
+
+Check our "Clean Beauty" collection for safer options!
+
+Q: How do I prevent aging?
+
+A: Anti-aging essentials:
+
+Sunscreen Daily: #1 anti-aging tool
+
+Retinol: Boosts collagen production
+
+Vitamin C: Brightens and protects
+
+Hydration: Drink water, use moisturizer
+
+Healthy Diet: Antioxidants and omega-3s
+
+Sleep: 7-8 hours for cell repair
+
+Don't Smoke: Accelerates aging
+
+Prevention is better than treatment!
+
+🏆 13. LOYALTY & REWARDS
+
+Q: Do you have a loyalty program?
+
+A: Yes! WERBEAUTY VIP Rewards:
+
+Earn 1 point per $1 spent
+
+Birthday bonus: 100 points
+
+Review rewards: 50 points per review
+
+Referral bonus: 200 points
+
+Redeem points:
+
+500 points = $5 off
+
+1000 points = $10 off
+
+2000 points = $25 off
+
+Q: How do I join the VIP program?
+
+A: It's automatic! When you create an account and make your first purchase, you're enrolled. No fees, no hassle. Start earning points immediately!
+
+Q: What are VIP member benefits?
+
+A: VIP perks include:
+
+Exclusive early access to sales
+
+Free standard shipping (no minimum)
+
+Birthday gift worth $25
+
+Priority customer support
+
+Member-only products
+
+Double points during special events
+
+Q: Can I combine points with discount codes?
+
+A: Usually yes! You can typically stack:
+
+Points redemption + promotional codes
+
+Points + free shipping
+
+Points + sale prices
+
+Some exclusions apply to limited-edition items.
+
+🔒 14. PRIVACY & SECURITY
+
+Q: How do you protect my data?
+
+A: We take privacy seriously:
+
+SSL encryption for all transactions
+
+PCI-DSS compliant payment processing
+
+Never sell personal information to third parties
+
+Secure data storage with regular backups
+
+GDPR and CCPA compliant
+
+Two-factor authentication available
+
+Q: What information do you collect?
+
+A: We collect:
+
+Name and contact details
+
+Shipping/billing addresses
+
+Payment information (encrypted)
+
+Order history
+
+Browsing behavior (for recommendations)
+
+Communication preferences
+
+You control what you share!
+
+Q: Do you use cookies?
+
+A: Yes, we use cookies to:
+
+Remember your cart and preferences
+
+Analyze site traffic
+
+Personalize your experience
+
+Serve relevant ads
+
+You can manage cookie preferences in your browser settings.
+
+Q: Can I opt-out of marketing emails?
+
+A: Absolutely! To unsubscribe:
+
+Click "Unsubscribe" at bottom of any email
+
+Or go to Profile Settings → Email Preferences
+
+Choose which emails you want to receive
+
+You'll still get order confirmations and shipping updates.
+
+🌍 15. SUSTAINABILITY & ETHICS
+
+Q: Are your products cruelty-free?
+
+A: Yes! We're committed to cruelty-free beauty:
+
+No animal testing on products or ingredients
+
+Certified by PETA and Leaping Bunny
+
+Many vegan options available (look for the badge)
+
+Partner only with cruelty-free brands
+
+Beauty shouldn't harm animals!
+
+Q: Do you have eco-friendly packaging?
+
+A: We're working toward sustainability:
+
+Recyclable cardboard boxes
+
+Biodegradable packing peanuts
+
+Minimal plastic use
+
+Reusable glass containers
+
+Carbon-neutral shipping options available
+
+Join us in protecting the planet!
+
+Q: What are you doing about sustainability?
+
+A: Our green initiatives:
+
+Refill program for select products
+
+Recycling program: Send back empties for points
+
+Sustainable sourcing of ingredients
+
+Carbon offset for all shipments
+
+Partnerships with environmental organizations
+
+Every purchase plants a tree!
+
+📱 16. TECHNICAL SUPPORT
+
+Q: The website isn't loading properly
+
+A: Try these fixes:
+
+Clear browser cache and cookies
+
+Disable browser extensions
+
+Try a different browser (Chrome, Firefox, Safari)
+
+Check your internet connection
+
+Disable VPN if using one
+
+Still having issues? Contact tech support!
+
+Q: I can't add items to my cart
+
+A: Troubleshooting steps:
+
+Make sure JavaScript is enabled
+
+Clear browser cache
+
+Disable ad blockers
+
+Try incognito/private mode
+
+Log out and log back in
+
+If problem persists, we'll help you manually!
+
+Q: The chatbot isn't responding
+
+A: If I'm not responding:
+
+Refresh the page
+
+Clear browser cache
+
+Try another browser
+
+Check internet connection
+
+Use the contact form as backup
+
+I'm usually available 24/7!
+
+Q: Do you have a mobile app?
+
+A: Currently, we're mobile-web optimized (works great on phones!). A native mobile app is in development for 2025. Meanwhile, add our website to your home screen for app-like experience:
+
+iPhone: Tap Share → Add to Home Screen
+
+Android: Tap Menu → Add to Home Screen
+
+🎉 17. SPECIAL OCCASIONS
+
+Q: Do you offer gift wrapping?
+
+A: Yes! Premium gift wrapping available:
+
+Luxury gift box with ribbon ($10)
+
+Personalized gift card included
+
+Gift receipt (no prices shown)
+
+Add special message at checkout
+
+Perfect for birthdays, holidays, and celebrations!
+
+Q: Can I send a gift directly to someone?
+
+A: Absolutely! At checkout:
+
+Check "This is a gift"
+
+Enter recipient's address
+
+Add gift message
+
+Choose gift wrapping
+
+Select delivery date (if available)
+
+We'll ship directly with no prices shown!
+
+Q: Do you have holiday gift sets?
+
+A: Yes! Seasonal gift sets available:
+
+Valentine's Day: Romance Collection
+
+Mother's Day: Pampering Set
+
+Father's Day: Men's Grooming Kit
+
+Christmas: Luxury Beauty Box
+
+Birthday: Customizable sets
+
+Perfect gifts at special prices!
+
+Q: Can I create a custom gift set?
+
+A: Coming soon! We're developing a "Build Your Own" gift set feature. For now, purchase items individually and add gift wrapping - our team will beautifully package them together!
+
+📊 18. ORDER ISSUES
+
+Q: I entered the wrong address
+
+A: Act fast! If order hasn't shipped:
+
+Contact us immediately via chat/email
+
+Provide correct address
+
+We'll update before shipping
+
+If already shipped, contact the carrier for address correction (may incur fees).
+
+Q: My order is missing items
+
+A: We sincerely apologize! Please:
+
+Check all packaging (items might be in separate compartments)
+
+Review order confirmation email
+
+Contact us with order number and missing items
+
+We'll ship missing items immediately at no charge
+
+Your satisfaction is guaranteed!
+
+Q: I received the wrong product
+
+A: Our apologies! We'll make it right:
+
+Don't open/use the wrong item
+
+Contact us with order number and photos
+
+We'll arrange pickup or provide return label
+
+Correct item ships immediately
+
+You keep the wrong item as our apology!
+
+Q: How do I cancel my order?
+
+A: To cancel:
+
+Contact us ASAP (orders ship fast!)
+
+Provide order number
+
+We'll cancel if not yet shipped
+
+Refund processed within 3-5 business days
+
+If already shipped, you can return for full refund.
+
+Q: Can I change my order?
+
+A: If your order hasn't shipped yet:
+
+Contact us immediately
+
+Tell us what you want to change
+
+We'll update the order
+
+Once shipped, you'll need to place a new order and return unwanted items.
+
+🎓 19. ABOUT STREAMLIT & BOTPRESS
+
+Q: What is Streamlit?
+
+A: Streamlit is a powerful Python framework used to build WERBEAUTY's web interface. It allows rapid development of interactive web applications with:
+
+Pure Python code (no HTML/CSS/JS required)
+
+Real-time updates and dynamic content
+
+Beautiful UI components out-of-the-box
+
+Session state management for shopping cart
+
+Fast prototyping and deployment
+
+Q: What is Botpress?
+
+A: Botpress is the AI platform powering me, your assistant! It provides:
+
+Natural Language Understanding (NLU)
+
+Conversation flow management
+
+Multi-turn dialogue handling
+
+Integration with product databases
+
+Analytics and improvement tracking
+
+24/7 availability without human intervention
+
+Q: How does the chatbot work?
+
+A: I use advanced AI to:
+
+Understand your questions using NLP
+
+Extract key information (intents and entities)
+
+Retrieve relevant data from our product database
+
+Generate helpful, personalized responses
+
+Learn from interactions to improve over time
+
+All while maintaining conversation context!
+
+Q: Why were these technologies chosen?
+
+A: Streamlit and Botpress were selected for this project because:
+
+Streamlit: Rapid development, Python-centric, perfect for data-driven apps
+
+Botpress: Open-source, powerful NLP, easy integration
+
+Learning: Demonstrates modern full-stack skills
+
+Efficiency: Build sophisticated features quickly
+
+Scalability: Can grow with business needs
+
+❓ 20. GENERAL FAQ
+
+Q: Is there a physical store?
+
+A: Currently, WERBEAUTY is online-only, allowing us to offer:
+
+Lower prices (no storefront costs)
+
+Wider product selection
+
+Convenient 24/7 shopping
+
+Direct-to-door delivery
+
+Better deals and promotions
+
+We're considering pop-up stores in 2026!
+
+Q: Do you test products on animals?
+
+A: Never! We're 100% cruelty-free and certified by:
+
+PETA (Cruelty-Free)
+
+Leaping Bunny Program
+
+Choose Cruelty-Free (CCF)
+
+We only partner with brands that share our ethics.
+
+Q: Are your prices negotiable?
+
+A: Our prices are fixed to ensure fairness for all customers. However:
+
+Watch for regular sales and promotions
+
+Use loyalty points for discounts
+
+Subscribe for exclusive coupon codes
+
+Price match guarantee available
+
+Bundle deals save money!
+
+Q: Can I become an affiliate/influencer partner?
+
+A: Yes! We love partnering with beauty enthusiasts:
+
+Apply via our Partnerships page
+
+Share your social media stats
+
+We'll review within 5 business days
+
+Earn 10-15% commission on sales
+
+Get exclusive discount codes for followers
+
+Q: Do you donate to charities?
+
+A: Yes! We support:
+
+Look Good Feel Better: Cancer patients
+
+Project Beauty Share: Homeless shelters
+
+Environmental Defense Fund: Sustainability
+
+Women's Shelters: Dignity products
+
+1% of all sales goes to these causes!
+
+🚀 BONUS: CONVERSATION EXAMPLES
+
+Example 1: Product Recommendation
+
+User: "I need a gift for my mom who loves anti-aging products"
+
+Bot: "How thoughtful! For anti-aging, I recommend our Luxury Age-Defying Set ($145):
+
+Retinol Night Cream (reduces wrinkles)
+
+Vitamin C Serum (brightens)
+
+Eye Repair Complex (targets fine lines)
+
+Hydrating Face Mask
+
+Plus beautiful gift wrapping! Would you like me to add it to your cart?"
+
+Example 2: Order Tracking
+
+User: "Track order #WB12345"
+
+Bot: "Let me check that for you! 📦
+
+Order #WB12345:
+
+✅ Shipped on Dec 3, 2024
+
+🚚 Carrier: FedEx
+
+📍 Current Location: In transit to Los Angeles
+
+📅 Expected Delivery: Dec 6, 2024
+
+🔗 Tracking: [FDX1234567890]
+
+Your order is on time! Is there anything else I can help with?"
+
+Example 3: Skin Concern
+
+User: "My skin is really dry and flaky"
+
+Bot: "I'm sorry you're dealing with dryness! Let me help. For very dry skin, you need:
+
+Immediate Relief:
+
+Hyaluronic Acid Serum ($52) - Deep hydration
+
+Rich Moisture Cream ($68) - Locks in moisture
+
+Gentle Cream Cleanser ($32) - Won't strip oils
+
+Pro Tips:
+
+Avoid hot water (use lukewarm)
+
+Skip harsh exfoliants
+
+Use humidifier at night
+
+Drink more water!
+
+Would you like me to create a complete dry skin routine for you?"
+
+Example 4: Returns
+
+User: "I want to return my lipstick, wrong color"
+
+Bot: "No problem! Returns are easy:
+
+Go to My Orders in your account
+
+Find your order and click Request Return
+
+Select 'Wrong Color' as reason
+
+Print the prepaid return label
+
+Ship within 7 days
+
+Refund: $45.00 back to original payment method within 5-7 days after we receive it.
+
+Need a different shade instead? I can help you find the perfect color! What look are you going for?"
+
+Example 5: Technical Issue
+
+User: "Cart not working"
+
+Bot: "Let me help fix that! Try these steps:
+
+Refresh the page (F5)
+
+Clear cache: Ctrl+Shift+Delete
+
+Try incognito mode
+
+Different browser (Chrome/Firefox)
+
+Still not working? I can:
+
+Take your order manually via chat
+
+Email you a direct checkout link
+
+Connect you with tech support
+
+What product were you trying to add? I'll handle it for you! 😊"
+
+💡 CONVERSATION STARTERS
+
+Use these to train the bot for natural engagement:
+
+"Hi" / "Hello" / "Hey there"
+
+"Show me bestsellers"
+
+"I need help"
+
+"What's on sale?"
+
+"Track my order"
+
+"Return policy?"
+
+"Products for oily skin"
+
+"Gift ideas under $50"
+
+"Do you ship to [country]?"
+
+"How do I apply discount code?"
+
+"What's trending?"
+
+"I have sensitive skin"
+
+"Cancel my order"
+
+"Change shipping address"
+
+"Speak to a human"
